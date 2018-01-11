@@ -4,7 +4,9 @@ function getWeatherInfo($cityName)
 {	
 	$ak = 'u0uaUgTp6acMyjpFHKfe8jOpjEoyaHGZ';
 	$sk = 'ofKVIzbdFiDjk5iil22RDNBwO03AV8rF';
-	$url = 'http://api.map.baidu.com/telematics/v3/weather?ak=%s&location=%s&output=%s&sn=%s';
+    $ak = 'WT7idirGGBgA6BNdGM36f3kZ';
+    $sk = 'uqBuEvbvnLKC8QbNVB26dQYpMmGcSEHM';
+    $url = 'http://api.map.baidu.com/telematics/v3/weather?ak=%s&location=%s&output=%s&sn=%s';
 	$uri = '/telematics/v3/weather';
 	$location = $cityName;
 	$output = 'json';
