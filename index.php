@@ -94,8 +94,7 @@ class wechatCallbackapiTest
 			include("weather2.php");
 			$content = getWeatherInfo($city);
 		}
-//        $result = $this->transmitNews($object, $content);
-        $result = $this->transmitText($object, $content);
+        $result = $this->transmitNews($object, $content);
         return $result;
     }
    

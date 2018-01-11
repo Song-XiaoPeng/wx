@@ -21,18 +21,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="94" column="30" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
+            <state relative-caret-position="315">
+              <caret line="97" column="23" selection-start-line="97" selection-start-column="23" selection-end-line="97" selection-end-column="23" />
               <folding>
-                <marker date="1515685975406" expanded="true" signature="2567:2756" ph="..." />
-                <marker date="1515685975406" expanded="true" signature="3033:3207" ph="..." />
-                <marker date="1515685975406" expanded="true" signature="3411:3662" ph="..." />
-                <marker date="1515685975406" expanded="true" signature="3634:3655" ph="..." />
-                <marker date="1515685975406" expanded="true" signature="3894:4067" ph="..." />
-                <marker date="1515685975406" expanded="true" signature="4238:4404" ph="..." />
+                <marker date="1515686180751" expanded="true" signature="2507:2696" ph="..." />
+                <marker date="1515686180751" expanded="true" signature="2973:3147" ph="..." />
+                <marker date="1515686180751" expanded="true" signature="3351:3602" ph="..." />
+                <marker date="1515686180751" expanded="true" signature="3574:3595" ph="..." />
+                <marker date="1515686180751" expanded="true" signature="3834:4007" ph="..." />
+                <marker date="1515686180751" expanded="true" signature="4178:4344" ph="..." />
               </folding>
             </state>
           </provider>
@@ -48,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="weather2.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="weather2.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weather2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+            <state relative-caret-position="-88">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,8 +90,8 @@
         <option value="D:/fangbei/第04章源代码/42_weather/index.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/test.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/weather2.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -220,12 +220,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1515680003936</updated>
-      <workItem from="1515680005623" duration="4762000" />
+      <workItem from="1515680005623" duration="4809000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4762000" />
+    <option name="totallyTimeSpent" value="4809000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -318,18 +318,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/weather2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="94" column="30" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
-          <folding>
-            <marker date="1515685975406" expanded="true" signature="2567:2756" ph="..." />
-            <marker date="1515685975406" expanded="true" signature="3033:3207" ph="..." />
-            <marker date="1515685975406" expanded="true" signature="3411:3662" ph="..." />
-            <marker date="1515685975406" expanded="true" signature="3634:3655" ph="..." />
-            <marker date="1515685975406" expanded="true" signature="3894:4067" ph="..." />
-            <marker date="1515685975406" expanded="true" signature="4238:4404" ph="..." />
-          </folding>
+        <state relative-caret-position="-88">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -341,11 +334,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/weather2.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-          <folding />
+        <state relative-caret-position="315">
+          <caret line="97" column="23" selection-start-line="97" selection-start-column="23" selection-end-line="97" selection-end-column="23" />
+          <folding>
+            <marker date="1515686180751" expanded="true" signature="2507:2696" ph="..." />
+            <marker date="1515686180751" expanded="true" signature="2973:3147" ph="..." />
+            <marker date="1515686180751" expanded="true" signature="3351:3602" ph="..." />
+            <marker date="1515686180751" expanded="true" signature="3574:3595" ph="..." />
+            <marker date="1515686180751" expanded="true" signature="3834:4007" ph="..." />
+            <marker date="1515686180751" expanded="true" signature="4178:4344" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
