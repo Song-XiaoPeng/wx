@@ -4,7 +4,7 @@
     CopyRight 2013 All Rights Reserved
 */
 
-define("TOKEN", "weixin");
+define("TOKEN", "sone");
 
 $wechatObj = new wechatCallbackapiTest();
 if (!isset($_GET['echostr'])) {
@@ -73,7 +73,7 @@ class wechatCallbackapiTest
         switch ($object->Event)
         {
             case "subscribe":
-                $content = "欢迎关注方倍工作室，查询天气，发送天气加城市名，如“深圳天气”";
+                $content = "欢迎关注sone的公众号，查询天气，发送天气加城市名，如“深圳天气”";
                 break;
             case "unsubscribe":
                 $content = "取消关注";
