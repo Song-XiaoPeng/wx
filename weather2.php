@@ -22,8 +22,8 @@ function getWeatherInfo($cityName)
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $result = curl_exec($ch);
     curl_close($ch);
-    $result = json_decode($result, true);
     return $result;
+    $result = json_decode($result, true);
     if ($result["error"] != 0){
         return $result["status"];
     }
