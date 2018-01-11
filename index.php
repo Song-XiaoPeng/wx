@@ -44,8 +44,11 @@ class wechatCallbackapiTest
 
     public function responseMsg()
     {
-        $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+//        $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+        $postStr = file_get_contents('php://input');
+
         if (!empty($postStr)){
+
             $this->logger("R ".$postStr);
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
             $RX_TYPE = trim($postObj->MsgType);
@@ -73,7 +76,7 @@ class wechatCallbackapiTest
         switch ($object->Event)
         {
             case "subscribe":
-                $content = "欢迎关注sone的公众号，查询天气，发送天气加城市名，如“深圳天气”";
+                $content = "欢迎关注sone的公众号，查询天气，发送天气加城市名，如“南阳天气”";
                 break;
             case "unsubscribe":
                 $content = "取消关注";
@@ -91,7 +94,8 @@ class wechatCallbackapiTest
 			include("weather2.php");
 			$content = getWeatherInfo($city);
 		}
-        $result = $this->transmitNews($object, $content);
+//        $result = $this->transmitNews($object, $content);
+        $result = $this->transmitText($object, $content);
         return $result;
     }
    
