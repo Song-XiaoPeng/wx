@@ -1,0 +1,86 @@
+<?php
+$str = '{
+    "error":0,
+    "status":"success",
+    "date":"2016-06-29",
+    "results":[
+        {
+            "currentCity":"深圳",
+            "pm25":"18",
+            "index":[
+                {
+                    "title":"穿衣",
+                    "zs":"炎热",
+                    "tipt":"穿衣指数",
+                    "des":"天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。"
+                },
+                {
+                    "title":"洗车",
+                    "zs":"不宜",
+                    "tipt":"洗车指数",
+                    "des":"不宜洗车，未来24小时内有雨，如果在此期间洗车，雨水和路上的泥水可能会再次弄脏您的爱车。"
+                },
+                {
+                    "title":"旅游",
+                    "zs":"一般",
+                    "tipt":"旅游指数",
+                    "des":"天气较热，有微风，但较强降雨的天气将给您的出行带来很多的不便，若坚持旅行建议带上雨具。"
+                },
+                {
+                    "title":"感冒",
+                    "zs":"少发",
+                    "tipt":"感冒指数",
+                    "des":"各项气象条件适宜，发生感冒机率较低。但请避免长期处于空调房间中，以防感冒。"
+                },
+                {
+                    "title":"运动",
+                    "zs":"较不宜",
+                    "tipt":"运动指数",
+                    "des":"有较强降水，建议您选择在室内进行健身休闲运动。"
+                },
+                {
+                    "title":"紫外线强度",
+                    "zs":"弱",
+                    "tipt":"紫外线强度指数",
+                    "des":"紫外线强度较弱，建议出门前涂擦SPF在12-15之间、PA+的防晒护肤品。"
+                }
+            ],
+            "weather_data":[
+                {
+                    "date":"周三 06月29日 (实时：31℃)",
+                    "dayPictureUrl":"http://api.map.baidu.com/images/weather/day/zhongyu.png",
+                    "nightPictureUrl":"http://api.map.baidu.com/images/weather/night/zhongyu.png",
+                    "weather":"中雨",
+                    "wind":"微风",
+                    "temperature":"33 ~ 27℃"
+                },
+                {
+                    "date":"周四",
+                    "dayPictureUrl":"http://api.map.baidu.com/images/weather/day/dayu.png",
+                    "nightPictureUrl":"http://api.map.baidu.com/images/weather/night/dayu.png",
+                    "weather":"中到大雨",
+                    "wind":"微风",
+                    "temperature":"32 ~ 26℃"
+                },
+                {
+                    "date":"周五",
+                    "dayPictureUrl":"http://api.map.baidu.com/images/weather/day/dayu.png",
+                    "nightPictureUrl":"http://api.map.baidu.com/images/weather/night/dayu.png",
+                    "weather":"中到大雨",
+                    "wind":"微风",
+                    "temperature":"30 ~ 26℃"
+                },
+                {
+                    "date":"周六",
+                    "dayPictureUrl":"http://api.map.baidu.com/images/weather/day/zhenyu.png",
+                    "nightPictureUrl":"http://api.map.baidu.com/images/weather/night/zhenyu.png",
+                    "weather":"阵雨",
+                    "wind":"微风",
+                    "temperature":"32 ~ 26℃"
+                }
+            ]
+        }
+    ]
+}';
+echo '<pre>';
+var_dump(json_decode($str,true));
