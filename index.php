@@ -189,6 +189,7 @@ $item_str
     public function getJokeInfo()
     {
         $dao = DAOPDO::getSingleTon();
+        require "DAOPDO.php";
         do {
             $id = mt_rand(1, 1000);
             $sql = "select * from joke where id=$id";
