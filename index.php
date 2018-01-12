@@ -8,8 +8,8 @@ define("TOKEN", "sone");
 
 $wechatObj = new wechatCallbackapiTest();
 if (!isset($_GET['echostr'])) {
-	$wechatObj->responseMsg();
-}else{
+    $wechatObj->responseMsg();
+} else {
     $wechatObj->valid();
 }
 
@@ -18,7 +18,7 @@ class wechatCallbackapiTest
     public function valid()
     {
         $echoStr = $_GET["echostr"];
-        if($this->checkSignature()){
+        if ($this->checkSignature()) {
             echo $echoStr;
             exit;
         }
@@ -35,9 +35,9 @@ class wechatCallbackapiTest
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
 
-        if($tmpStr == $signature){
+        if ($tmpStr == $signature) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -47,14 +47,13 @@ class wechatCallbackapiTest
 //        $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
         $postStr = file_get_contents('php://input');
 
-        if (!empty($postStr)){
+        if (!empty($postStr)) {
 
-            $this->logger("R ".$postStr);
+            $this->logger("R " . $postStr);
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
             $RX_TYPE = trim($postObj->MsgType);
 
-            switch ($RX_TYPE)
-            {
+            switch ($RX_TYPE) {
                 case "event":
                     $result = $this->receiveEvent($postObj);
                     break;
@@ -62,19 +61,18 @@ class wechatCallbackapiTest
                     $result = $this->receiveText($postObj);
                     break;
             }
-            $this->logger("T ".$result);
+            $this->logger("T " . $result);
             echo $result;
-        }else {
+        } else {
             echo "";
             exit;
         }
     }
-    
+
     private function receiveEvent($object)
     {
         $content = "";
-        switch ($object->Event)
-        {
+        switch ($object->Event) {
             case "subscribe":
                 $content = "欢迎关注sone的公众号，查询天气，发送天气加城市名，如“南阳天气”";
                 break;
@@ -85,20 +83,25 @@ class wechatCallbackapiTest
         $result = $this->transmitText($object, $content);
         return $result;
     }
-  
+
     private function receiveText($object)
     {
         $keyword = trim($object->Content);
-		if (strstr($keyword, "天气")){
-			$city = str_replace('天气', '', $keyword);
-			include("weather2.php");
-			$content = getWeatherInfo($city);
-		}
-        $result = $this->transmitNews($object, $content);
+        $result = "欢迎关注sone的公众号，查询天气，发送天气加城市名，如“南阳天气”\n
+        想听笑话？发送“笑话”";
+        if (strstr($keyword, "天气")) {
+            $city = str_replace('天气', '', $keyword);
+            include("weather2.php");
+            $content = getWeatherInfo($city);
+            $result = $this->transmitNews($object, $content);
+        }
+        if (strstr($keyword, "笑话")) {
+            $result = $this->getJokeInfo();
+        }
         return $result;
     }
-   
-    
+
+
     private function transmitText($object, $content)
     {
         $textTpl = "<xml>
@@ -114,7 +117,7 @@ class wechatCallbackapiTest
 
     private function transmitNews($object, $arr_item)
     {
-        if(!is_array($arr_item))
+        if (!is_array($arr_item))
             return;
 
         $itemTpl = "    <item>
@@ -165,19 +168,33 @@ $item_str
         $result = sprintf($textTpl, $object->FromUserName, $object->ToUserName, time());
         return $result;
     }
-    
+
     private function logger($log_content)
     {
-        if(isset($_SERVER['HTTP_APPNAME'])){   //SAE
+        if (isset($_SERVER['HTTP_APPNAME'])) {   //SAE
             sae_set_display_errors(false);
             sae_debug($log_content);
             sae_set_display_errors(true);
-        }else if($_SERVER['REMOTE_ADDR'] != "127.0.0.1"){ //LOCAL
+        } else if ($_SERVER['REMOTE_ADDR'] != "127.0.0.1") { //LOCAL
             $max_size = 10000;
             $log_filename = "log.xml";
-            if(file_exists($log_filename) and (abs(filesize($log_filename)) > $max_size)){unlink($log_filename);}
-            file_put_contents($log_filename, date('H:i:s')." ".$log_content."\r\n", FILE_APPEND);
+            if (file_exists($log_filename) and (abs(filesize($log_filename)) > $max_size)) {
+                unlink($log_filename);
+            }
+            file_put_contents($log_filename, date('H:i:s') . " " . $log_content . "\r\n", FILE_APPEND);
         }
+    }
+
+
+    public function getJokeInfo()
+    {
+        $dao = DAOPDO::getSingleTon();
+        do {
+            $id = mt_rand(1, 1000);
+            $sql = "select * from joke where id=$id";
+            $res = $dao->fetchRow($sql);
+        } while (empty($res));
+        return $res['content'];
     }
 }
 
