@@ -87,8 +87,8 @@ class wechatCallbackapiTest
     private function receiveText($object)
     {
         $keyword = trim($object->Content);
-        $result = "欢迎关注sone的公众号，查询天气，发送天气加城市名，如“南阳天气”\n
-        想听笑话？发送“笑话”";
+        $content = "欢迎关注sone的公众号，查询天气，发送天气加城市名，如“南阳天气”\n想听笑话？发送“笑话”";
+        $result = $this->transmitText($object,$content);
         if (strstr($keyword, "天气")) {
             $city = str_replace('天气', '', $keyword);
             include("weather2.php");
@@ -96,7 +96,8 @@ class wechatCallbackapiTest
             $result = $this->transmitNews($object, $content);
         }
         if (strstr($keyword, "笑话")) {
-            $result = $this->getJokeInfo();
+            $content = $this->getJokeInfo();
+            $result = $this->transmitText($object,$content);
         }
         return $result;
     }
@@ -188,8 +189,8 @@ $item_str
 
     public function getJokeInfo()
     {
-        $dao = DAOPDO::getSingleTon();
         require "DAOPDO.php";
+        $dao = DAOPDO::getSingleTon();
         do {
             $id = mt_rand(1, 1000);
             $sql = "select * from joke where id=$id";
